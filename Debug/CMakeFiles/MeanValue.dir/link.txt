@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wall -Wextra -pedantic-errors -Wl,--dependency-file=CMakeFiles/MeanValue.dir/link.d CMakeFiles/MeanValue.dir/main.cpp.o -o MeanValue  /usr/local/lib/libgtest.a /usr/local/lib/libgtest_main.a /usr/local/lib/libgmock.a /usr/local/lib/libgmock_main.a /usr/local/lib/libgmock.a /usr/local/lib/libgtest.a
