@@ -1,0 +1,3 @@
+/home/ManMaci03/Documents/Cpp_projects/Calcolo_Scientifico/Esercitazione_01_IO/Debug/CMakeFiles/MeanValue.dir
+/home/ManMaci03/Documents/Cpp_projects/Calcolo_Scientifico/Esercitazione_01_IO/Debug/CMakeFiles/edit_cache.dir
+/home/ManMaci03/Documents/Cpp_projects/Calcolo_Scientifico/Esercitazione_01_IO/Debug/CMakeFiles/rebuild_cache.dir
