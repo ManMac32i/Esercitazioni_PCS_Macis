@@ -15,11 +15,11 @@ public:
         cout << "real number initialized as complex_number" << endl;
     }
 
-    complex_number(T r, T i)
+    complex_number(T r, T i) // initialized the real and imaginary part
         : real(r), img(i)
     {}
 
-    complex_number comp_conj()
+    complex_number comp_conj() // calculate the conjucate
     {
         if (img > 0) 
         {
@@ -33,17 +33,17 @@ public:
         return complex_number(real, -img);
     }
 
-    T real_part() const
+    T real_part() const // function that returns the real part 
     {
         return real;
     }
 
-    T imaginary() const
+    T imaginary() const // function that returns the imaginary part
     {
         return img;
     }
 
-    friend ostream& operator<<(ostream& os, const complex_number& other)
+    friend ostream& operator<<(ostream& os, const complex_number& other) // overload of operator<< 
     {
         os << other.real_part();
         if (other.imaginary() >= 0) {
@@ -54,7 +54,7 @@ public:
         return os;;
     }
 
-    complex_number& operator+=(const complex_number& other)
+    complex_number& operator+=(const complex_number& other) 
     {
         T a = real;
         T b = img;
