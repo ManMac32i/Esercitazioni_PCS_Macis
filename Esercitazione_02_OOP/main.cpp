@@ -9,6 +9,8 @@ int main() {
 
     /*DOUBLE*/
 
+    cout << "\nDOUBLE VALUES:\n" << endl;
+
     double value1 = 3.5;
     double value2 = -2.7;
     double value3 = 1.3;
@@ -23,12 +25,14 @@ int main() {
 
     comp_d cn3(0, value2);
     cn3 *= value1;
-    cout << cn3 << endl;
+    cout << "The Third complex number is: " << cn3 << endl;
 
     double value5 = 2.8;
     cout << value5 + cn3 << endl; 
 
     /*FLOAT*/
+
+    cout << "\nFLOAT VALUES: \n" << endl;
 
     float num1 = 9.6;
     float num2 = -1.8;
@@ -44,8 +48,8 @@ int main() {
 
     comp_f cn6(0, num2);
     cn6 *= num3;
-    cout << cn3 << endl;
-
+    cout << "The Third complex number is: " << cn6 << endl;
+    
     float num5 = 2.8;
     cout << num5 + cn6 << endl; 
 
