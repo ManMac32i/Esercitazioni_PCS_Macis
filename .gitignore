@@ -3,3 +3,4 @@
 *.pdf
 *Debug
 *CMakeLists.txt
+/Esercitazione_04_ARR/src
