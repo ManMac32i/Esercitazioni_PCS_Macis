@@ -66,7 +66,7 @@ int setup_output_file(ifstream& file, ofstream& results)
     }
     results << "] \n";
 
-    results << "Rate of return of the portfolio: " << setprecision(3) << value(investment, V) << endl;
+    results << "Rate of return of the portfolio: " << setprecision(4) << value(investment, V) << endl;
     results << "V: " << fixed << setprecision(2) << V << endl;
     return 0;
 }
