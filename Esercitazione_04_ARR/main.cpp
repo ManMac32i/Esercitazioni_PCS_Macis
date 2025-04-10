@@ -53,7 +53,8 @@ int main()
         V += value(w * investment, r);
     }
 
-    results << "S  = " << fixed << setprecision(2) << investment << ", n = " << assets << endl;
+    results << "S  = " << fixed << setprecision(2) << investment;
+    results << ", n = " << setprecision(0) << assets << endl;
     results << "w = [ ";
     for (double d : rate) 
     {
@@ -70,7 +71,6 @@ int main()
 
     results << "Rate of return of the portfolio: " << setprecision(3) << (V - investment)/investment << endl;
     results << "V: " << fixed << setprecision(2) << V << endl;
-
 
     return 0;
 }
