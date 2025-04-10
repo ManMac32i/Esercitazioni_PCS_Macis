@@ -20,11 +20,9 @@ int setup_output_file(ifstream& file, ofstream& results)
 {
     unsigned int location;
     double investment;
-    double assets;
+    unsigned int assets;
     double V = 0;
     string line;
-    vector<double> rate;
-    vector<double> fraction;
     
     // Read and set investement
     getline(file, line);
@@ -37,17 +35,21 @@ int setup_output_file(ifstream& file, ofstream& results)
     // skip unnecessary line
     getline(file, line);
     
+    vector<double> rate(assets);
+    vector<double> fraction(assets);
     double r;
     double w;
+    unsigned int i = 0;
 
     while(getline(file, line))
     {
         location = line.find(';');
         w = stod(line.substr(0, location));
         r = stod(line.substr(location + 1, line.length()));
-        rate.push_back(r);
-        fraction.push_back(w);
+        rate[i] = r;
+        fraction[i] = w;
         V += portfolio(w * investment, r);
+        i ++;
     }
 
     results << "S  = " << fixed << setprecision(2) << investment;
