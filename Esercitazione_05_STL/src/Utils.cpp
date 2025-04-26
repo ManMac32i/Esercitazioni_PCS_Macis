@@ -1,58 +1,78 @@
+# include "Utils.hpp"
+# include "PolygonalMesh.hpp"
 # include <fstream>
 # include <iostream>
+# include <sstream>
 # include <vector>
 
 using namespace std;
 
-string cut_commas(unsigned int& pointer, string& s)
+
+namespace PolygonalLibrary 
 {
-    unsigned int location = s.find(',');
-    s = s.substr(pointer, location);
-    pointer = location;
-    return s.substr(pointer + 1, s.length());
+bool ImportMesh(PolygonalMesh& mesh)
+{
+    if (!importCell0Ds(mesh))
+        return false;
+    if (!importCell1Ds(mesh))
+        return false;
+    if (!importCell2Ds(mesh))
+        return false;
+
+    return true;
 }
 
-int analyze_Cell0_data(ifstream& file)
+bool importCell0Ds(PolygonalMesh& mesh)
 {
+    ifstream file("./Cell0Ds.csv");
+
+    if (!file)
+        return false;
+
+    list<string> listlines;
     string line;
-    vector<int> Id, Marker;
-    vector<double> X,Y;
-    unsigned int location = 0;
 
-    getline(file, line);
+    while(getline(file,line))
+        listlines.push_back(line);
+    
+    file.close();
 
-    while(getline(file, line))
+    listlines.pop_front();
+
+    mesh.NumCell0 = listlines.size();
+
+    if (mesh.NumCell0 == 0)
     {
-        Id.push_back(stoi(cut_commas(location, line)));
-        Marker.push_back(stoi(cut_commas(location, line)));
-        X.push_back(stod(cut_commas(location, line)));
-        Y.push_back(stod(line));
-
-        location = 0;
+        cout << "There is no Cell0" << endl;
+        return false;
     }
 
-    return 0;
+    mesh.Cell0Id.reserve(mesh.NumCell0);
+    mesh.Cell0coordinates = Eigen::MatrixXd::Zero(3, mesh.NumCell0);
+
+    for (const string& line : listlines)
+    {
+        istringstream convertor(line);
+
+        unsigned int id;
+        unsigned int marker;
+
+        convertor >> id >> marker >> mesh.Cell0coordinates(0, id) >> mesh.Cell0coordinates(1, id);
+        mesh.Cell0Id.push_back(id);
+
+    }
+    return true;
 }
 
-int analyze_Cell2_data(ifstream& file)
+bool importCell1Ds(PolygonalMesh& mesh)
 {
-    string line;
-    vector<int> Id, Marker, Numvertices, Vertices, NumEdges, Edges;
-    unsigned int location = 0;
+    return true;
+}
 
-    getline(file, line);
+bool importCell2Ds(PolygonalMesh& mesh)
+{
+    return true;
+}
 
-    while(getline(file, line))
-    {
-        Id.push_back(stoi(cut_commas(location, line)));
-        Marker.push_back(stoi(cut_commas(location, line)));
-        Marker.push_back(stoi(cut_commas(location, line)));
-        Marker.push_back(stoi(cut_commas(location, line)));
-        Marker.push_back(stoi(cut_commas(location, line)));
-        Marker.push_back(stoi(line));
 
-        location = 0;
-    }
-
-    return 0;
 }
