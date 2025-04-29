@@ -12,12 +12,12 @@ namespace PolygonalLibrary
     {
         unsigned int NumCell0 = 0;
         vector <unsigned int> Cell0Id;
-        Eigen::MatrixXd Cell0coordinates;
+        Eigen::MatrixXd Cell0coordinates = {};
         map <unsigned int, list<unsigned int>> MarkerCell0;
 
         unsigned int NumCell1 = 0;
         vector <unsigned int> Cell1Id;
-        Eigen::MatrixXi Cell1orgin_end;
+        Eigen::MatrixXi Cell1orgin_end = {};
         map <unsigned int, list<unsigned int>> MarkerCell1;
 
         unsigned int NumCell2 = 0;

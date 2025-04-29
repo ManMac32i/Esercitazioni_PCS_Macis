@@ -5,6 +5,7 @@
 
 using namespace std;
 using namespace PolygonalLibrary;
+using namespace Eigen;
 
 int main()
 {

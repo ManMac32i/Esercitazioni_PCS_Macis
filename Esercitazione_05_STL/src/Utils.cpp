@@ -48,7 +48,7 @@ bool importCell0Ds(PolygonalMesh& mesh)
     }
 
     mesh.Cell0Id.reserve(mesh.NumCell0);
-    mesh.Cell0coordinates = Eigen::MatrixXd::Zero(2, mesh.NumCell0);
+    mesh.Cell0coordinates = Eigen::MatrixXd::Zero(3, mesh.NumCell0);
 
     for (const string& line : listlines)
     {
@@ -103,7 +103,7 @@ bool importCell1Ds(PolygonalMesh& mesh)
     }
 
     mesh.Cell1Id.reserve(mesh.NumCell1);
-    mesh.Cell1orgin_end = Eigen::MatrixXd::Zero(2, mesh.NumCell1);
+    mesh.Cell1orgin_end = Eigen::MatrixXi::Zero(3, mesh.NumCell1);
 
     for (const string& line : listlines)
     {
