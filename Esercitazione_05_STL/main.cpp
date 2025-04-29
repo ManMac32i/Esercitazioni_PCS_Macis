@@ -1,15 +1,18 @@
-# include <fstream>
+# include <iostream>
 # include "Utils.hpp"
+# include "PolygonalMesh.hpp"
 
 using namespace std;
+using namespace PolygonalLibrary;
 
 int main()
 {
-    ifstream Cell0("PolygonalMesh/Cell0Ds.csv");
-    ifstream Cell1("PolygonalMesh/Cell1Ds.csv");
-    ifstream Cell2("PolygonalMesh/Cell2Ds.csv");
+    PolygonalMesh mesh;
 
-
+    if (!ImportMesh(mesh))
+    {
+        cout << "Mesh correctly imported" << endl;
+    }
 
     return 0;
 }

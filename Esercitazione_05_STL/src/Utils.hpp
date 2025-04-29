@@ -1,13 +1,19 @@
-# pragma once
+# pragma once 
 
-# include <fstream>
 # include <iostream>
-# include <vector>
+# include "PolygonalMesh.hpp"
 
 using namespace std;
 
-string cut_commas(unsigned int& pointer, string& s);
 
-int analyze_Cell01_data(ifstream& file);
+namespace PolygonalLibrary 
+{
+bool ImportMesh(PolygonalMesh& mesh);
 
-int analyze_Cell2_data(ifstream& file);
+bool importCell0Ds(PolygonalMesh& mesh);
+
+bool importCell1Ds(PolygonalMesh& mesh);
+
+bool importCell2Ds(PolygonalMesh& mesh);
+
+}
