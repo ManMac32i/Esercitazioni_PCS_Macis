@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <vector>
+#include <math.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,27 +14,37 @@ namespace SortLibrary {
     };
 
     template<sortable T>
-    void SelectionSort(vector<T> & v)
+    void BubbleSort(vector<T>& v)
     {
-        const unsigned int n = v.size();
-        for (int i = 0, i < n - 1, i++)
+        unsigned int n = v.size();
+        bool flag = true;
+    
+        while (flag)
         {
-            unsigned int min_index = i;
-            for (int j = i + 1, i < n, j++)
+            flag = false;
+            for (unsigned int i = 0; i < n - 1; i++)
             {
-                if (v[j] < v[min_index])
+                if (v[i] > v[i + 1])
                 {
-                    min_index = j;
+                    T tmp = v[i];
+                    v[i] = v[i + 1];
+                    v[i + 1] = tmp;
+                    flag = true;
                 }
-
             }
-            T swap = v[i];
-            v[i] = v[min_index];
-            v[min_index] = swap;
+            n = n - 1;
         }
     }
-
-
+    
+    template<sortable T>
+    void HeapSort(vector<T>& v)
+    {
+        make_heap(v.begin(), v.end()); 
+        for (auto i = v.end(); i != v.begin(); --i) 
+        {
+            pop_heap(v.begin(), i);
+        }
+    }
 }
 
 
